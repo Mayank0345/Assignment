@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Module 4 Assignment</title>
+</head>
+<body>
+  <script>
+    
+    (function (window) {
+      var helloSpeaker = {};
+      helloSpeaker.speak = function (name) {
+        console.log("Hello " + name);
+      };
+      window.helloSpeaker = helloSpeaker;
+    })(window);
+
+    
+    (function (window) {
+      var byeSpeaker = {};
+      byeSpeaker.speak = function (name) {
+        console.log("Good Bye " + name);
+      };
+      window.byeSpeaker = byeSpeaker;
+    })(window);
+
+    
+    (function () {
+      var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
+
+      for (var i = 0; i < names.length; i++) {
+        var firstLetter = names[i].charAt(0).toLowerCase();
+
+        if (firstLetter === 'j') {
+          byeSpeaker.speak(names[i]);
+        } else {
+          helloSpeaker.speak(names[i]);
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
